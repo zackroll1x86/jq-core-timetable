@@ -1,0 +1,11 @@
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.git/
+.gitignore
+.venv/
+venv/
+work/
+outputs/
+*.tar
+*.tar.gz
