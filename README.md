@@ -1,7 +1,13 @@
 # JQ CORE 今日课表
 
-这是一个 Windows 桌面课表工具。登录后会在屏幕右下角显示下一节课，点击提示卡即可进入
-完整周课表。便携版已经包含全部运行依赖。
+适用于 Windows 10/11 x64 的桌面课表工具。登录系统后会在屏幕右下角显示下一节课，
+点击提示卡即可进入完整周课表。
+
+## 下载
+
+从 [Releases](../../releases/latest) 下载
+`Timetable-1.1.0-Windows-x64-portable.zip`，完整解压后运行 `今日课表.exe`。
+便携版已经包含 Python 和运行依赖，不需要单独安装环境。
 
 ## 功能
 
@@ -11,10 +17,11 @@
 - 导入学校课表 PDF 后自动生成新课表并保存
 - 使用 Pixiv 作品 `126364462` 作为固定背景
 - 支持桌面快捷方式、开始菜单快捷方式和开机启动提示
+- 首次启动提供经典安装向导，可随时通过 `--setup` 重新配置
 
-## 运行
+## 源码运行
 
-直接运行：
+需要 Python 3.12：
 
 ```powershell
 python -m pip install --requirement requirements.txt
@@ -38,7 +45,7 @@ docker build --target test -t next-class-app:test .
 构建最终镜像：
 
 ```powershell
-docker build --target runtime -t next-class-app:1.0.0 .
+docker build --target runtime -t next-class-app:1.1.0 .
 ```
 
 Linux 容器中的 Tkinter 窗口需要 X11、WSLg 或其他图形转发。
@@ -49,7 +56,9 @@ Linux 容器中的 Tkinter 窗口需要 X11、WSLg 或其他图形转发。
 周次、节次、课程类型和地点，生成新课表并保存到用户配置目录，下次启动自动使用。
 也可以直接把 PDF 文件拖到 `今日课表.exe` 上自动导入。
 
-## 快捷方式
+当前解析器适用于包含星期表格和文字内容的文本型课表 PDF，暂不支持扫描图片型 PDF。
+
+## 快捷方式与启动提示
 
 首次启动会显示经典安装向导，可创建：
 
@@ -75,3 +84,8 @@ python app.py --setup
 
 - 学校导出的课表 PDF
 - 上海建桥学院 2026-2027 学年官方校历
+
+## 素材说明
+
+界面背景使用 Pixiv 作品 `126364462` 的本地处理版本。公开分发或商用前，请确认原作品
+的授权范围。
